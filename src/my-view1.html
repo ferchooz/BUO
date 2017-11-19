@@ -69,6 +69,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       });
     }
 
+    CreateRecord(){
+          const client = new stitch.StitchClient('buoproject-badqm');
+          const db = client.service('mongodb', 'mongodb-atlas').db('BUO_DB');
+          client.login().then(() =>
+            db.collection('BUO_DB_Collection').updateOne({owner_id: client.authedId()}, {$set:{number:42}}, {upsert:true})
+          ).then(()=>
+            db.collection('BUO_DB_Collection').find({owner_id: client.authedId()})
+          ).then(()=>
+            db.collection('BUO_DB_Collection').insert(
+              {
+                  owner_id: client.authedId(),
+                  USERS_Nombre : this.$.name.value,
+                  USERS_Correo : this.$.Correo.value,
+                  USERS_Contrasena : this.$.Contrasena.value,
+                  USERS_Pais : this.$.Pais.value,
+                  USERS_Ciudad : this.$.Ciudad.value,
+                  USERS_Estado : this.$.Estado.value,
+                  USERS_Tipo : this.$.Tipo.value,
+              }
+            )
+          ).then(docs => {
+            console.  log("Found docs", JSON.stringify(docs))
+          }).catch(err => {
+            console.error(err)
+          });
+      }
+
     window.customElements.define(MyView1.is, MyView1);
   </script>
 </dom-module>
