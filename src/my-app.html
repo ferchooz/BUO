@@ -22,9 +22,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/google-map/google-map-directions.html">
 <link rel="import" href="../bower_components/paper-input/all-imports.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
 <link rel="import" href="my-icons.html">
 
 <link rel="lazy-import" href="my-view1.html">
+<link rel="lazy-import" href="my-view2.html">
 <link rel="lazy-import" href="my-view404.html">
 
 <dom-module id="my-app">
@@ -48,10 +50,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       app-header paper-icon-button {
         --paper-icon-button-ink-color: white;
-      }
-
-      app-toolbar {
-        background-color: var(--paper-blue-300);
       }
 
       .drawer-list {
@@ -88,7 +86,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-drawer-layout fullbleed narrow="{{narrow}}">
       <!-- Drawer content -->
       <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
-        <app-toolbar>Menu</app-toolbar>
+        <app-toolbar><iron-image src="https://fangaloka.es/wp-content/uploads/2015/08/coworking.jpg"
+                        style="width:10px; height:5px;" ></iron-image></app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="view1" href="[[rootPath]]view1">Inicio</a>
         </iron-selector>
