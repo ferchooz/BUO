@@ -16,17 +16,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/google-map/google-map-marker.html">
 <link rel="import" href="../bower_components/google-map/google-map-poly.html">
 <link rel="import" href="../bower_components/google-map/google-map-directions.html">
-<link rel="import" href="../bower_components/address-autocomplete/address-autocomplete.html">
 
-<link rel="import" href="shared-styles.html">
 
-<script>
-  function myOwnAddressProcessingFunction(address) {
-    document.getElementById('name').value = address.name || '';
-  }
-</script>
-
-<dom-module id="my-view1">
+<dom-module id="my-view2">
   <template>
     <style include="shared-styles">
       :host {
@@ -41,34 +33,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-
-      <address-autocomplete processaddressfunction="myOwnAddressProcessingFunction" onfocus="myOwnAddressProcessingFunction({})"/>
-
-      <form style="margin-top: 3rem;">
-        <input id="name" placeholder="Name"/>
-      </form>  
-    </div>
-
-    <div class="card">
-      <google-map fit-to-markers api-key="AIzaSyD3E1D9b-Z7ekrT3tbhl_dy8DCXuIuDDRc">
-        <google-map-marker latitude="19.4282421" longitude="-99.20872" draggable="true"></google-map-marker>
-      </google-map>
-      <paper-button onclick="addNewFeature(this)"> Continuar </paper-button>
+      12345690
     </div>
   </template>
 
   <script>
-    class MyView1 extends Polymer.Element {
-      static get is() { return 'my-view1'; }
+    class MyView2 extends Polymer.Element {
+      static get is() { return 'my-view2'; }
     }
 
-    function addNewFeature(el) {
-      // Wait for ripple to finish.
-      el.addEventListener('transitionend', function(e) {
-        location.href = '/view2';
-      });
-    }
-
-    window.customElements.define(MyView1.is, MyView1);
+    window.customElements.define(MyView2.is, MyView2);
   </script>
 </dom-module>
